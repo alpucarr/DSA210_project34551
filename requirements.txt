@@ -2,3 +2,8 @@ pandas
 matplotlib
 seaborn
 scipy
+numpy
+yfinance
+scikit-learn
+scipy
+networkx
