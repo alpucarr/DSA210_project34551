@@ -1,33 +1,32 @@
-# DSA210: 5 may deadline 
+# Congressional Trading Behavior & Information Asymmetry
+**DSA 210 — Spring 2026**
 
-## 📌 Project Overview
-This project investigates potential insider trading activities among US Congress members. By analyzing historical stock transactions, market trends, and relationship networks, this project aims to mathematically distinguish between lucky investments and information asymmetry.
 
-## Key Features & Methodology
-We employed a multi-layered data science pipeline to extract signal from noise:
+Do U.S. senators trade stocks like they know something we don't? This project analyzes Senate STOCK Act disclosures to detect statistically abnormal trading patterns or potential insider trading, using market-adjusted returns, machine learning, and network analysis.
 
-1. **Anomaly Detection (Isolation Forest):** Filtered out routine trades to isolate massive, irregular transaction volumes.
-2. **Relative Performance Analysis (Alpha):** Calculated the true success of trades by neutralizing the S&P 500 (SPY) market trend, exposing trades that massively outperformed or escaped market crashes.
-3. **Event-Driven Timing:** Measured the exact days between a Senator's trade and a subsequent massive stock crash (e.g., escaping a 20% drop just 48 hours prior).
-4. **Machine Learning Classifier (Random Forest):** Trained a predictive model to assign a "Suspicion Probability Score" (0-100%) to each transaction based on Alpha, Market Trend, and Transaction Type.
-5. **Proxy Trading Analysis:** Cross-referenced highly suspicious trades with account ownership (Self vs. Spouse/Joint) to expose proxy trading.
-6. **Statistical A/B Testing (SciPy):** Conducted Independent T-Tests to determine if Proxy accounts statistically outperformed Self accounts.
-7. **Network Graph Visualization (NetworkX):** Generated a "Crime Board" topology connecting Senators, their Proxies, and the target assets.
 
-## Major Findings
-* **The PayPal Exodus:** The ML model assigned a **94% Suspicion Score** to Senator John Hickenlooper's massive dump of PYPL stock, occurring mere days before a historic market crash for the company. Senator Ron Wyden exhibited identical behavior.
-* **The Proxy Shield:** A significant portion of >80% suspicious trades were executed via "Spouse" or "Joint" accounts, revealing a consistent pattern of bypassing direct ethical scrutiny.
-* **Brazen Execution (P-Value: 0.4832):** Our T-Test revealed no statistically significant difference in returns between Self and Proxy accounts. Conclusion: Senators do not exclusively hide their highly profitable/suspicious trades in proxy accounts; they execute them openly under their own names with equal frequency.
 
-## Technologies Used
-* **Data Manipulation:** `pandas`, `numpy`
-* **Financial Data Engine:** `yfinance`
-* **Machine Learning:** `scikit-learn` (Random Forest Classifier)
-* **Statistical Analysis:** `scipy`
-* **Visualization:** `matplotlib`, `networkx`
 
-## ⚙️ How to Run the Project
-1. Clone the repository: `git clone [your-repo-link]`
-2. Install required dependencies: 
-   ```bash
-   pip install pandas numpy yfinance scikit-learn scipy networkx matplotlib
+
+| # | Notebook | What it does |
+|---|---|---|
+| 1 | `EDA_and_Filtering.ipynb` | Exploratory analysis, data distributions, and baseline hypothesis tests. |
+| 2 | `Data_prep_and_alpha.ipynb` | Data cleaning, dynamic 30-day alpha computation vs SPY, and feature engineering. |
+| 3 | `machine_learning.ipynb` | Unsupervised anomaly detection (Isolation Forest), behavioral clustering (K-Means), and Random Forest classification. |
+| 4 | `Network_and_Case_Studies.ipynb` | Tripartite transaction networks, quick-flip detection, and long-horizon co-investment (Syndicate) analysis via PageRank. |
+
+## Data Sources
+
+- **Kaggle (U.S. Senate Stock Trading Dataset)** — Raw congressional transaction disclosures (`senate_stock_disclosures.csv`)
+- **Yahoo Finance API (`yfinance`)** — Historical equity prices & S&P 500 (SPY) benchmark data
+
+
+## Setup
+
+```bash
+pip install -r requirements.txt
+```
+
+Place `senate_stock_disclosures.csv` in the project root, then run notebooks in order. Without the CSV, notebooks fall back to a synthetic dataset for pipeline validation.
+
+---
