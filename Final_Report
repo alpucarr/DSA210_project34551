@@ -219,3 +219,18 @@ The multi-stage pipeline produced several findings that challenge common assumpt
 **Indirect holdings absent.** Mutual funds, ETFs, and trusts held by senators are not captured, potentially selecting against the most sophisticated (and well-concealed) trading activity.
 
 **Future work.** The most valuable extension would be to link specific transaction dates to Congressional hearing schedules, bill introduction records, and regulatory announcement calendars. This would allow a direct event-study test of whether senators trade in the days immediately preceding legislative milestones relevant to their committee assignments — a far more powerful test of the information asymmetry hypothesis than the aggregate analysis conducted here. Additionally, an NLP pipeline applied to hearing transcripts could identify the specific legislative topics discussed days before trades occur, enabling the systematic mapping of information flow to transaction timing.
+
+---
+
+## 6. References
+
+- Fama, E. F., Fisher, L., Jensen, M. C., & Roll, R. (1969). The adjustment of stock prices to new information. *International Economic Review*, 10(1), 1–21.
+- Ziobrowski, A. J., Cheng, P., Boyd, J. W., & Ziobrowski, B. J. (2004). Abnormal returns from the common stock investments of the U.S. Senate. *Journal of Financial and Quantitative Analysis*, 39(4), 661–676.
+- Eggers, A. C., & Hainmueller, J. (2014). Congressional trading of the stock market. *Legislative Studies Quarterly*, 39(4), 579–587.
+- Stop Trading on Congressional Knowledge (STOCK) Act, Pub. L. No. 112-105, 126 Stat. 291 (2012).
+
+---
+
+*DSA 210 — Introduction to Data Science | Sabancı University, Spring 2026*
+*AI tool usage documented in AI Disclosure.md as required by course academic integrity policy.*
+
