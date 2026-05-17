@@ -1,4 +1,4 @@
-# Information Asymmetry Among the US Congress Members
+# Insider Trading Detection Among the U.S. Congress Members
 **DSA 210 — Spring 2026**
 
 
