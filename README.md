@@ -1,4 +1,4 @@
-# Congressional Trading Behavior & Information Asymmetry
+# Information Asymmetry Among the US Congress Members
 **DSA 210 — Spring 2026**
 
 
