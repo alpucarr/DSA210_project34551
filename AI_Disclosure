@@ -1,0 +1,59 @@
+This document discloses the role of AI assistance in the development of this project. The project involved two types of documentation: this general disclosure, which is this document where I describes the nature and scope of AI assistance, and a companion file (`AI_Disclosure_Detailed.txt`) which provides a prompt by prompt record of every AI interaction that produced code across all four notebooks.
+
+
+My Direction, AI Implementation
+
+Every research question, every hypothesis, every analytical decision, every methodological choice were all made by me. I decided that alpha should be computed as a 30 day market-adjusted return against SPY. I decided to use the HHI as a portfolio concentration metric. I decided that a threshold of ±5% was the right cutoff for labeling a transaction suspicious. I decided to test the proxy distancing hypothesis to separate the Machine Learning notebook from the Network Analysis noteboo and to use Welch's t test rather than a standard t test due to the confirmed non normality of the transaction value distribution.
+
+None of those decisions came from the AI. The AI was used exclusively as a code generation and implementation tool, its job was to translate my analytical intentions into working Python code, in an environment where my own Python proficiency was a limiting factor so Ai makes the project so much quicker, if I was the code writer the project could never be in this level because of time constrains.
+
+
+What AI Was Used For
+
+1. Python Code Generation (Primary Use)
+
+The majority of AI usage in this project was generating Python code from natural language descriptions of what I wanted to compute or visualize. All code cells across all four notebooks were produced through this workflow.
+
+For each analytical step, I described what I wanted in plain English (sometimes technically specific, sometimes more intiutive), and the AI produced the corresponding code. I then ran the code, interpreted the output, decided whether the result made sense, and either moved on or refined the prompt based on what I saw.
+
+
+Specific code tasks the AI assisted with include:
+
+- Parsing CSV files, datetime conversion, deriving year and month features, computing the midpoint estimate for range-reported transaction values.
+- Building the yfinance based pipeline to download historical prices for 793 tickers and the SPY benchmark, implementing the closest trading day lookup logic to handle weekends and market holidays, and computing the 30 day market adjusted return for each transaction.
+- Constructing the proxy flag, buy/sell binary, options flag, log volume transformation, and sector encoding with a manually specified ticker to sector map that I compiled and provided.
+- Implementing Shapiro Wilk normality tests, Welch's independent samples t tests, and one sample t tests with visualizations of the distributional comparisons.
+- All plots across the EDA, ML, and Network notebooks histograms, boxplots, bar charts, scatter plots, line charts, heatmaps, and network graphs — were generated through AI code based on my specifications for layout, content, and academic visual style.
+- Random Forest classifier with cross-validation, K-Means clustering with PCA dimensionality reduction, and Isolation Forest anomaly detection.
+- Building the transaction graph, the coinvestment synchronization network, PageRank computation, and the coordinated syndicate detection algorithm.
+- Writing the yfinance download loops that fetch actual historical prices for anomalous trades and quick flips, computing realized ROI and classifying outcomes.
+
+
+
+2. Report Drafting (Partially Used)
+
+An early draft of the written report was generated with AI assistance. However, this first draft was rejected because it introduced unsupported causal claims, selectively omitted unfavorable results (specifically, the 5-fold cross-validated ROC-AUC of 0.38, which indicates that the Random Forest model performs worse than random on unseen data), and misrepresented individual case findings by cherry-picking favorable trades while ignoring unfavorable ones within the same senator's record.
+
+A second draft was also rejected for overcorrecting in the opposite direction — understating genuine findings.
+
+The final report reflects a third iteration that I directed very specificall, AI wrote it but only because of the time leverage it makes, I directed it very strictly, the text is substantially mine in terms of the analytical framing, to understand what I mean by it, I recommend anyone to look at the last part of the detailed Ai disclosure.
+
+
+3. PowerPoint Presentation
+
+The project's visual slide deck was built using AI code generation for my presentation, but the slides doesnt mean anything its only there for a better asthetic for my presentation video.
+
+ 
+What AI Was NOT Used For
+To be explicit, the following were not AI generated:
+
+- The research question itself. The framing of insider trading detection as a data science problem, and the specific focus on alpha as the central metric, were my own.
+- Hypothesis formulation. The four hypotheses tested were proposed by me.
+- Methodological choices. The decision to use Welch's t- est over a standard t test, to exclude alpha from the Random Forest feature set, to set a 5% alpha threshold for the suspicious label and to include the 90 day horizon alongside the 30 day window all of these were my choices.
+- Interpretation of results. Every conclusion drawn from the statistical output was my interpretation, not the AI's.
+- Critical reading of AI output. In several cases, notably the report drafting, I explicitly rejected AI output because it misrepresented the data.
+- The sector ticker map. The mapping of 33 specific tickers to their respective sectors (Technology, Healthcare, Finance, Energy, Defense) used in the feature engineering pipeline was compiled by me and passed to the AI as a specification.
+
+Generally all the ideas that later applied as a code was my ideas. 
+
+
